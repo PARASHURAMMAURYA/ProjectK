@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import Profile from "./Profile";
+
 
 const Nav: React.FC = () => {
   const navigate = useNavigate();
@@ -12,14 +14,27 @@ const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const [profileOpen, setProfileOpen] = useState(false);
+  const toggleProfile = () => setProfileOpen(!profileOpen);
+ 
   return (
     <nav className="border-gray-200  dark:border-gray-700 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="flex items-center space-x-3 rtl:space-x-reverse">
+        <div className="flex flex-row items-center space-x-3 rtl:space-x-reverse">
           {/* <img src={'munna'} className="h-16 rounded-full" alt="Flowbite Logo" /> */}
+        <span onClick={toggleProfile}  >
+          <NavLink
+          to={ profileOpen ? '/profilecard' : '/'}
+          >
+          <Profile/>
+          </NavLink>
+          
+          </span>
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+         
             Project-K
           </span>
+         
         </div>
         <button
           onClick={toggleMenu}
@@ -110,20 +125,7 @@ const Nav: React.FC = () => {
                 </li>
 
 
-                <li className="block    py-2 px-3 md:p-0   rounded md:hover:bg-transparent   md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                  <NavLink
-                  onClick={Logout}
-                    to="/login"
-                    className={({ isActive }) =>
-                      `group  transition duration-300 no-underline hover:no-underline ${
-                        isActive ? "text-gray-300" : ""
-                      }`
-                    }
-                  >
-                    Logout
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-red-900"></span>
-                  </NavLink>
-                </li>
+              
               </>
             ) : (
               <div className="flex flex-row   border">

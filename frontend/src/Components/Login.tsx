@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface User {
   id: number; // or string, depending on your user ID type
@@ -26,7 +26,7 @@ function Login() {
 
     try {
       const response = await fetch("http://localhost:5000/login", {
-        method: 'post',
+        method: "post",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
       });
@@ -60,10 +60,18 @@ function Login() {
 
   return (
     <div>
+     
       <h1 className="font-bold text-xl mt-40 mb-4 animate-bounce">Login 👇</h1>
-      <div className={`flex justify-center items-center dark:bg-black ${!email && 'animate-pulse'}`}>
+      <div
+        className={`flex justify-center items-center dark:bg-black ${
+          !email && "animate-pulse"
+        }`}
+      >
         <div className="rounded-sm max-w-md border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-          <form className="max-w-md p-4 sm:p-12.5 xl:p-17.5" onSubmit={handleLogin}>
+          <form
+            className="max-w-md p-4 sm:p-12.5 xl:p-17.5"
+            onSubmit={handleLogin}
+          >
             <TextField
               id="filled-basic"
               required

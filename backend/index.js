@@ -86,4 +86,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
+
+app.get("/profilecard", async (req, res) => {
+  const result = await User.find(req.body);
+  res.send(result);
+  console.log(result);
+});
+
 app.listen(5000);
