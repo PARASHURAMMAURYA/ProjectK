@@ -14,7 +14,7 @@ export default {
           "spin-slow": "spin 30s linear infinite", // Customize duration here
           "spin-fast": "spin 2s linear infinite",
           "fade-in": "fade-in 2s ease-out",
-          "slide-left": "slide-left 2s ease-out",
+          "slide-left": "slide-left 0.5s ease-out",
           "slide-up": "slide-up 2s ease-out",
           "slide-right":"slide-right 0.5s ease-out",
           marquee: 'marquee 20s linear infinite',

@@ -87,6 +87,12 @@ app.post("/login", async (req, res) => {
 });
 
 
+app.post('/profilecard',async(req,res)=>{
+     let picture = new User(req.body);
+   let result = await picture.save();
+   res.send(result);
+})
+
 app.get("/profilecard", async (req, res) => {
   const result = await User.find(req.body);
   res.send(result);

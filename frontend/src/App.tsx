@@ -5,6 +5,7 @@ import PrivateComponent from "./Components/PrivateComponent";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import ProfileCard from "./Components/ProfileCard";
+import NavSrinc from "./Components/NavSrinc";
  
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route path="/Newsfeed" element={<ProfileCard/>}></Route>
           <Route path="/contact" element={<h1>Contact</h1>}></Route>
           <Route path="/profilecard" element={<ProfileCard/>}></Route>
+           
         </Route>
-
+        <Route path="/navsrinc" element={<NavSrinc/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
       </Routes>
