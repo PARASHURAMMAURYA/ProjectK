@@ -21,8 +21,9 @@ export default function NavSrinc() {
 
   return (
     <div className="relative animate-slide-left w-full h-64 lg:hidden md:hidden flex justify-end">
-      <div className="w-80 h-32">
+      <div className="w-96 h-32">
         <Card
+        
           sx={{
             maxWidth: 345,
             margin: "16px",

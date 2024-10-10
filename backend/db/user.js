@@ -3,7 +3,11 @@ const userSchema = new mongoose.Schema(
     {
   name: String,
   password:String,
-  email:String
+  email:String,
+  profilePic: {
+    type: String,
+    default: null,
+  },
   }
 );
 

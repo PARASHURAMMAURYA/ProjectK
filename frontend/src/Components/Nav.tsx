@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
+import { Avatar } from "@mui/material";
+
+
+interface User {
+  name: string;
+  email: string;
+  profilePic?: string;  
+}
 
 const Nav: React.FC = () => {
   const navigate = useNavigate();
@@ -10,12 +18,17 @@ const Nav: React.FC = () => {
     localStorage.clear();
     navigate("/login");
   };
+  
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const [profileOpen, setProfileOpen] = useState(true);
   const toggleProfile = () => setProfileOpen(!profileOpen);
+  const userData = localStorage.getItem("user");
 
+  if (userData) {
+    const user: User = JSON.parse(userData);
+    console.log(user)
   return (
     <nav className="border-gray-200  dark:border-gray-700 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -23,7 +36,11 @@ const Nav: React.FC = () => {
           {/* <img src={'munna'} className="h-16 rounded-full" alt="Flowbite Logo" /> */}
           <span onClick={toggleProfile}>
             <NavLink to={profileOpen ? "/profilecard" : "/"}>
-              <Profile />
+                {!userData?<Profile />  :<Avatar
+                        src={user.profilePic}
+                        title="Profile"
+                        sx={{ width: 40, height:40 }}
+                      ></Avatar>} 
             </NavLink>
           </span>
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -153,6 +170,6 @@ const Nav: React.FC = () => {
       </div>
     </nav>
   );
-};
-
+}
+}
 export default Nav;

@@ -3,6 +3,10 @@ import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../Redux/auuuthSlice";
+import requestHandler from "../common/requestHandler";
+import { login } from "../Redux/authSlice";
 
 interface User {
   id: number; // or string, depending on your user ID type
@@ -19,6 +23,9 @@ function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,6 +56,25 @@ function Login() {
       toast.error("Wrong Details", {});
     }
   };
+
+
+
+// const handleLogin = (e:React.FormEvent)=>{
+//   e.preventDefault();
+//   dispatch(loginUser({email,password}));
+// };
+
+
+
+// const handleLogin = async (formData: any) => {
+//   await requestHandler(dispatch, login, formData, null, null);
+//   toast.success("Login Successfully", {});
+//       setTimeout(() => {
+//         navigate("/");
+//       }, 1000);
+// };
+
+
 
   useEffect(() => {
     const auth = localStorage.getItem("user");
